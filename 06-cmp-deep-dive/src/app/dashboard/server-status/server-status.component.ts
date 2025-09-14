@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './server-status.component.css',
 })
 export class ServerStatusComponent {
-  currentStatus = 'online';
+  currentStatus = 'unkown';
 }
