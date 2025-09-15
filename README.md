@@ -16,3 +16,9 @@ ng new first-angular-app
 ```
 ng g c user
 ```
+
+## versions
+
+### angular > 17
+
+    - @if/@else
