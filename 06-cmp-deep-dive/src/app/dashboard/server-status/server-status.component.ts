@@ -25,8 +25,14 @@ export class ServerStatusComponent implements OnInit {
 
   constructor() {
     //using a signal inside effect(), angular will setup a subscription
-    effect(() => {
-      console.log(this.currentStatus());
+    effect((onCleanup) => {
+      const timer = setTimeout(() => {
+        console.log(this.currentStatus());
+      }, 1000);
+
+      onCleanup(() => {
+        clearTimeout(timer);
+      });
     });
   }
 
