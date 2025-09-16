@@ -13,8 +13,16 @@ ng new first-angular-app
 
 ## angular-cli
 
+- components
+
 ```
 ng g c user
+```
+
+- directives
+
+```
+ng g d ...
 ```
 
 ## versions
