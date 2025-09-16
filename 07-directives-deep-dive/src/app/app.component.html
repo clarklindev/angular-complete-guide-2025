@@ -5,7 +5,16 @@
 
   <app-auth />
 
-  <ng-template appAuth="admin">
+  <!-- <ng-template appAuth="admin">
     <p>only admins should see this</p>
-  </ng-template>
+  </ng-template> -->
+  <p *appAuth="'admin'" class="protected-content admin">
+    only admins should see this
+  </p>
+  <p *appAuth="'user'" class="protected-content unauthenticated">
+    regular users should see this
+  </p>
+  <p *appAuth="'guest'" class="protected-content authenticated">
+    guest users should see this
+  </p>
 </main>
