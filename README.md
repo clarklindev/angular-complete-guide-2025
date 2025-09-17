@@ -29,6 +29,7 @@ ng g d ...
 
 ### angular > 17
 
+    - signal()
     - @if/@else
 
 ### angular > 17.2
