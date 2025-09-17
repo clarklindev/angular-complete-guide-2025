@@ -1,12 +1,13 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
+  // ChangeDetectorRef,
   Component,
-  DestroyRef,
+  // DestroyRef,
   inject,
-  OnInit,
+  // OnInit,
   // input
 } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
 import { MessagesService } from '../messages.service';
 
 //NOTES: change detection is ONLY triggered when
@@ -22,35 +23,38 @@ import { MessagesService } from '../messages.service';
   templateUrl: './messages-list.component.html',
   styleUrl: './messages-list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [AsyncPipe],
 })
-export class MessagesListComponent implements OnInit {
+// implements OnInit
+export class MessagesListComponent {
   // messages = input.required<string[]>();
   private messagesService = inject(MessagesService);
+  messages$ = this.messagesService.messages$;
 
   //inject change detection
-  private cdRef = inject(ChangeDetectorRef);
+  // private cdRef = inject(ChangeDetectorRef);
 
-  private destroyRef = inject(DestroyRef);
+  // private destroyRef = inject(DestroyRef);
 
   // messages = this.messagesService.allMessages;
   // get messages() {
   //   return this.messagesService.allMessages;
   // }
-  messages: string[] = [];
+  // messages: string[] = [];
 
-  ngOnInit(): void {
-    const subscription = this.messagesService.messages$.subscribe(
-      (messages) => {
-        this.messages = messages;
-        this.cdRef.markForCheck(); //this tells angular that this component should now be checked for changes
-      }
-    );
+  // ngOnInit(): void {
+  //   const subscription = this.messagesService.messages$.subscribe(
+  //     (messages) => {
+  //       this.messages = messages;
+  //       this.cdRef.markForCheck(); //this tells angular that this component should now be checked for changes
+  //     }
+  //   );
 
-    //cleanup
-    this.destroyRef.onDestroy(() => {
-      subscription.unsubscribe();
-    });
-  }
+  //   //cleanup
+  //   this.destroyRef.onDestroy(() => {
+  //     subscription.unsubscribe();
+  //   });
+  // }
 
   get debugOutput() {
     console.log('[MessagesList] "debugOutput" binding re-evaluated.');
