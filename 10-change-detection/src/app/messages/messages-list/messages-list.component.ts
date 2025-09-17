@@ -7,7 +7,7 @@ import {
   // OnInit,
   // input
 } from '@angular/core';
-import { AsyncPipe } from '@angular/common';
+// import { AsyncPipe } from '@angular/common';
 import { MessagesService } from '../messages.service';
 
 //NOTES: change detection is ONLY triggered when
@@ -23,20 +23,19 @@ import { MessagesService } from '../messages.service';
   templateUrl: './messages-list.component.html',
   styleUrl: './messages-list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe],
+  // imports: [AsyncPipe],
 })
 // implements OnInit
 export class MessagesListComponent {
   // messages = input.required<string[]>();
   private messagesService = inject(MessagesService);
-  messages$ = this.messagesService.messages$;
+  // messages$ = this.messagesService.messages$;
 
   //inject change detection
   // private cdRef = inject(ChangeDetectorRef);
-
   // private destroyRef = inject(DestroyRef);
 
-  // messages = this.messagesService.allMessages;
+  messages = this.messagesService.allMessages;
   // get messages() {
   //   return this.messagesService.allMessages;
   // }
