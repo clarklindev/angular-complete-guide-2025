@@ -3,10 +3,14 @@ import {
   // signal
 } from '@angular/core';
 
+import { BehaviorSubject } from 'rxjs'; //like a signal...
+
 @Injectable({
   providedIn: 'root',
 })
 export class MessagesService {
+  messages$ = new BehaviorSubject<string[]>([]);
+
   //   private messages = signal<string[]>([]);
   private messages: string[] = [];
 
@@ -18,5 +22,7 @@ export class MessagesService {
   addMessage(message: string) {
     // this.messages.update((prevMessages) => [...prevMessages, message]);
     this.messages = [...this.messages, message];
+
+    this.messages$.next([...this.messages]);
   }
 }
