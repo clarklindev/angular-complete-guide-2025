@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { toObservable } from '@angular/core/rxjs-interop';
-// import { interval, map } from 'rxjs';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { interval, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,12 @@ import { toObservable } from '@angular/core/rxjs-interop';
 export class AppComponent implements OnInit {
   clickCount = signal(0);
   clickCount$ = toObservable(this.clickCount);
+  interval$ = interval(1000);
+
+  //NOTE: observables DO NOT have an initial value but Signals do...
+  //we can set initial values on observables that originally dont have initial values
+  //toSignal() auto cleans up the observable subscription if component where using signal gets removed
+  intervalSignal = toSignal(this.interval$, { initialValue: 0 });
 
   private destroyRef = inject(DestroyRef);
 
