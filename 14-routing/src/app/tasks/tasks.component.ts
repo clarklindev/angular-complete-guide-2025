@@ -16,6 +16,9 @@ export class TasksComponent {
   //to get access need to set app.config.ts -> withRouterConfig({paramsInheritanceStrategy: 'always'});
   userId = input.required<string>();
 
+  //to access query param via input() need app.config.ts -> withComponentInputBinding(),
+  order = input<'asc' | 'desc'>();
+
   private tasksService = inject(TasksService);
 
   userTasks = computed(() =>
