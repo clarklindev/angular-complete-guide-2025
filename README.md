@@ -167,7 +167,22 @@ npm run build
 ```
 
 ```
-npm run server:ssr:routing
+npm run serve:ssr:routing
 ```
 
+### troubleshooting
+
 - see an error localstorage is not defined
+- FIX: task.service.ts -> put code to run in browser in afterNextRender()
+
+```ts
+  constructor() {
+    afterNextRender(() => {
+      const tasks = localStorage.getItem("tasks");
+
+      if (tasks) {
+        this.tasks.set(JSON.parse(tasks));
+      }
+    });
+  }
+```
