@@ -4,10 +4,10 @@
   <a
     routerLink="./"
     [queryParams]="{
-    order: order() === 'asc' ? 'desc' : 'asc',
+    order: order === 'asc' ? 'desc' : 'asc',
   }"
   >
-    sort {{ order() === "asc" ? "descending" : "ascending" }}
+    sort {{ order === "asc" ? "descending" : "ascending" }}
   </a>
 </p>
 
