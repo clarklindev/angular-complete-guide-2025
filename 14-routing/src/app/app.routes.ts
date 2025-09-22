@@ -20,7 +20,7 @@ const dummyCanMatch: CanMatchFn = (route, segment) => {
   const router = inject(Router);
 
   const shouldGetAccess = Math.random();
-  if (shouldGetAccess < 0.5) {
+  if (shouldGetAccess < 1) {
     return true;
   }
 

@@ -15,7 +15,8 @@ export const routes: Routes = [
   {
     path: 'tasks', // <your-domain>/users/<uid>/tasks
     component: TasksComponent,
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange', //this fixes the default behavior is that resolver function re-executes if route parameter changes but NOT if query parameter changes
+    // runGuardsAndResolvers: 'paramsOrQueryParamsChange', //this fixes the default behavior is that resolver function re-executes if route parameter changes but NOT if query parameter changes
+    runGuardsAndResolvers: 'always',
     resolve: {
       userTasks: resolveUserTasks,
     },
