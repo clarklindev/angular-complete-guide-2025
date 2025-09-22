@@ -43,8 +43,15 @@
 
 <!-- @defer(){} -->
 
+<!-- 
 @defer(on viewport) {
 <app-offer-preview />
 } @placeholder {
 <p>we might have an offer</p>
+} -->
+
+@defer(on interaction) {
+<app-offer-preview />
+} @placeholder {
+<p class="fallback">we might have an offer</p>
 }
