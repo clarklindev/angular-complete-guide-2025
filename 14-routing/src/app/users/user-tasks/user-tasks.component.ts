@@ -4,7 +4,7 @@ import {
   // DestroyRef,
   inject,
   input,
-  OnInit,
+  // OnInit,
 } from '@angular/core';
 import { UsersService } from '../users.service';
 import {
@@ -15,7 +15,6 @@ import {
   ResolveFn,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  ActivatedRoute,
 } from '@angular/router';
 
 @Component({
@@ -25,7 +24,9 @@ import {
   styleUrl: './user-tasks.component.css',
   imports: [RouterOutlet, RouterLink],
 })
-export class UserTasksComponent implements OnInit {
+
+//implements OnInit
+export class UserTasksComponent {
   //name an input with the same as the dynamic url segment
   // userId = input.required<string>();
 
@@ -60,23 +61,22 @@ export class UserTasksComponent implements OnInit {
   //   this.destroyRef.onDestroy(() => subscription.unsubscribe());
   // }
 
-  private activatedRoute = inject(ActivatedRoute);
-
+  // private activatedRoute = inject(ActivatedRoute);
   // OPTION 2
-  ngOnInit() {
-    // this.activatedRoute.data holds the merged app.routes.ts route data:{} and resolve:{} data
-    this.activatedRoute.data.subscribe({
-      next: (data) => {
-        console.log(data);
-        //logs...
+  // ngOnInit() {
+  //   // this.activatedRoute.data holds the merged app.routes.ts route data:{} and resolve:{} data
+  //   this.activatedRoute.data.subscribe({
+  //     next: (data) => {
+  //       console.log(data);
+  //       //logs...
 
-        /* {
-          message: "Hello",
-          userName: 'Mr X'
-        }*/
-      },
-    });
-  }
+  //       /* {
+  //         message: "Hello",
+  //         userName: 'Mr X'
+  //       }*/
+  //     },
+  //   });
+  // }
 }
 
 //outsourcing data fetching from component to resolver function
