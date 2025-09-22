@@ -102,3 +102,38 @@ npm run build
 ```
 firebase deploy
 ```
+
+## Using ng add, ng deploy & Angular's Built-in Deployment Support
+
+- https://angular.dev/tools/cli/deployment
+- you can use angular cli to assist with deploying to various platforms
+
+### firebase
+
+```
+ng add @angular/fire
+```
+
+### vercel
+
+```
+vercel init angular
+```
+
+### netlify
+
+```
+ng add @netlify-builder/deploy
+```
+
+### github pages
+
+```
+ng add angular-cli-ghpages
+```
+
+### amazon s3
+
+```
+ng add @jefiozie/ngx-aws-deploy
+```
