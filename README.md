@@ -137,3 +137,17 @@ ng add angular-cli-ghpages
 ```
 ng add @jefiozie/ngx-aws-deploy
 ```
+
+## SSR - Setting Up SSR For An Angular App
+
+### creating a new angular SSR project
+
+```
+ng new --ssr
+```
+
+### adding SSR to existing angular project
+
+```
+ng add @angular/ssr
+```
