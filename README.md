@@ -53,3 +53,52 @@ onReset(){
     })
 }
 ```
+
+## building angular app
+
+```
+npm run build
+```
+
+## deploy
+
+- deploy the 'dist/' to a static webhost
+
+### firebase hosting - install firebase cli
+
+#### step1 - install firebase cli
+
+```
+npm install -g firebase-tools
+```
+
+### step2 - firebase hosting - initialize your project
+
+#### - login
+
+```
+firebase login
+```
+
+#### - initialize project
+
+```
+firebase init
+```
+
+- (select firebase features -> choose "hosting")
+  - `hosting:  files for firebase hosting and (optionally) setup github action deploys`
+- use an existing project (we created the project in firebase)
+- select a default firebase project for this directory
+- what do you want to use as your public directory: `dist/routing/browser`
+- configure as a single page app - `Y` - SPA -> all requests reach index.html
+
+### step3 - deploy to firebase hosting
+
+```
+npm run build
+```
+
+```
+firebase deploy
+```
