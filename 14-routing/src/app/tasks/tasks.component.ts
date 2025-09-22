@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { TaskComponent } from './task/task.component';
 import { Task } from './task/task.model';
@@ -11,5 +11,7 @@ import { Task } from './task/task.model';
   imports: [TaskComponent],
 })
 export class TasksComponent {
+  //to get access need to set app.config.ts -> withRouterConfig({paramsInheritanceStrategy: 'always'});
+  userId = input.required<string>();
   userTasks: Task[] = [];
 }
