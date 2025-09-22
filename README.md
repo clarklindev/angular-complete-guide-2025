@@ -151,3 +151,23 @@ ng new --ssr
 ```
 ng add @angular/ssr
 ```
+
+### Building and Service an SSR App
+
+- after setting up project as angular SSR project...
+
+```
+npm run build
+```
+
+- a script is added to package.json
+
+```json
+"server:ssr:routing": "node dist/routing/server/server.mjs"
+```
+
+```
+npm run server:ssr:routing
+```
+
+- see an error localstorage is not defined
