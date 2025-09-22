@@ -10,14 +10,18 @@ export const routes: Routes = [
     path: '', //<your-domain>/
     component: NoTaskComponent,
   },
-  //   {
-  //     path: 'tasks', //<your-domain>/tasks
-  //     component: TasksComponent,
-  //   },
+
   {
     path: 'users/:userId', //<your-domain>/users/<uid>
     component: UserTasksComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'tasks',
+        //pathMatch:'prefix' takes current 'path' combined with parent 'path' and checks if url starts with... the path
+        //pathMatch: 'full' takes current 'path' combined with parent 'path' and checks if url is EXACTLY the path
+        pathMatch: 'full',
+      },
       {
         path: 'tasks', //<your-domain>/users/<uid>/tasks
         component: TasksComponent,
