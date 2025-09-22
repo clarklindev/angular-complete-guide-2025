@@ -14,6 +14,12 @@ export const routes: Routes = [
     path: 'users/:userId', //<your-domain>/users/<uid>
     component: UserTasksComponent,
     children: userRoutes,
+
+    //adding static data to routes - app.config.ts requires withComponentInputBinding(),
+    //any data key eg. 'message' will be provided as an input to the component for the route
+    data: {
+      message: 'Hello!',
+    },
   },
   {
     // catchall route

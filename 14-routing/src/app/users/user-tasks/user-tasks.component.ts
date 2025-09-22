@@ -31,11 +31,15 @@ export class UserTasksComponent implements OnInit {
 
   userName = '';
 
+  message = input.required<string>();
+
   private usersService = inject(UsersService);
   private activatedRoute = inject(ActivatedRoute);
   private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
+    console.log('Input data:' + this.message());
+
     console.log(this.activatedRoute);
 
     console.log(this.activatedRoute.snapshot.paramMap.get('userId')); //a snapshot
