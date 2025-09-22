@@ -186,3 +186,20 @@ npm run serve:ssr:routing
     });
   }
 ```
+
+## SSG - Configuring & Using SSG
+
+```
+ng add @angular/ssr
+```
+
+- add in project root folder a file eg. user-routes.txt
+- it should list all routes to prerender
+
+```json
+//angular.json
+
+    "prerender": {
+        "routesFile": "user-routes.txt"
+    },
+```
